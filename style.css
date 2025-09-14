@@ -1,0 +1,245 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@700&display=swap');
+
+:root {
+    --main-bg-color: #101010;
+    --sidebar-bg-color: rgba(25, 25, 25, 0.5);
+    --text-color: #ffffff;
+    --accent-color: #5d00ff; /* Gojo Purple */
+    --accent-color-light: #8c52ff;
+    --font-main: 'Roboto', sans-serif;
+    --font-headings: 'Orbitron', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #000; /* Ensure background is pure black */
+    color: var(--text-color);
+    overflow-y: auto; /* Allow scrolling */
+}
+
+.video-wrapper {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    filter: brightness(0.4);
+}
+
+#bg-video {
+    width: 100vw; 
+    height: 100vh;
+    object-fit: contain;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh; /* Changed to min-height */
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 1rem;
+    z-index: 10;
+}
+
+.logo {
+    font-family: var(--font-headings);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color-light);
+}
+
+.menu-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+main.hero-section {
+    display: flex;
+    flex-grow: 1;
+    height: calc(100vh - 100px); /* Adjust based on header height */
+}
+
+.main-content {
+    flex: 3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-text {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    font-family: var(--font-headings);
+    font-size: 15rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 0.8;
+    z-index: 1;
+}
+
+.main-image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* --- ИЗМЕНИТЬ ИЗОБРАЖЕНИЕ ЗДЕСЬ --- */
+    /* Вставьте URL вашего изображения Годжо ниже */
+    background-image: url('годжо/годжо.jpg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    z-index: 2;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: var(--sidebar-bg-color);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    z-index: 3;
+    align-self: center; /* Align sidebar to the center of the flex container */
+    max-height: 400px;
+}
+
+.sidebar-content h2 {
+    font-family: var(--font-headings);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color-light);
+}
+
+.sidebar-content > p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.discover-button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.discover-button:hover {
+    background-color: var(--accent-color-light);
+    transform: scale(1.05);
+}
+
+/* Sections Styling */
+.techniques-section, .gallery-section {
+    padding: 4rem 3rem;
+    text-align: center;
+}
+
+.techniques-section h2, .gallery-section h2 {
+    font-family: var(--font-headings);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color-light);
+}
+
+.techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.technique-card {
+    background-color: #1c1c1c;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid #252525;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.technique-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(93, 0, 255, 0.3);
+}
+
+.technique-card h3 {
+    font-family: var(--font-headings);
+    color: var(--accent-color-light);
+    margin-bottom: 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-image img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Basic Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    main.hero-section {
+        flex-direction: column;
+        height: auto;
+    }
+    .sidebar {
+        margin-top: 2rem;
+        max-height: none;
+    }
+    .background-text {
+        font-size: 6rem;
+    }
+    .techniques-section, .gallery-section {
+        padding: 3rem 1rem;
+    }
+}
